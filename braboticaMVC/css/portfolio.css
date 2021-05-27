@@ -1,0 +1,69 @@
+
+/* css van Thijs */
+.headerportfolio {
+    text-align: center;
+    background-image: url("../img/Robotics.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    font-size: 30px;
+    font-family: lato;
+    text-shadow: 1px 1px #000000;
+    border-radius: 5px;
+}
+.transparentLayer {
+    background: radial-gradient(circle, rgba(0,0,0,0.5) 0%, rgba(8,172,223,0.5) 100%);
+    padding: 60px;
+    border-radius: 5px;
+}
+.card {
+    margin-top: 20px;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    border: 1px solid rgba(8,172,223,1);
+}
+  
+.bg-img {
+    margin: 15px;
+    margin-bottom: 0px;
+    background-repeat: no-repeat;
+    min-height: 300px;
+    background-position: center;
+    border-radius: 5px;
+}
+  
+.content {
+    padding: 15px;
+}
+  
+button {
+    background-color: transparent;
+    border: 1px solid #2196F3;
+    padding: .5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    box-shadow: 0.5px 1px 4px #000000;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+    grid-gap: 20px;
+    margin-bottom: 20px;
+}
+
+#filterBar {
+    width: 96%;
+    background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+    background-position: 10px 12px; /* Position the search icon */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid rgba(8,172,223,1); /* Add a grey border */
+    border-radius: 5px;
+    margin-top: 12px;
+    margin-bottom: 12px; /* Add some space below the input */
+}
