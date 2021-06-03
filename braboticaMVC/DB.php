@@ -5,7 +5,7 @@ class DB
     public static function connect()
     {
         $host   = "localhost";
-        $db     = "les4";
+        $db     = "braboticadb";
         $user   = "root";
         $pass   = "";
 

@@ -7,6 +7,7 @@
             <li><a href="index.php?controller=Producten">Producten</a></li>
             <li><a href="index.php?controller=Downloads">Downloads</a></li>
             <li><a href="index.php?controller=Contact">Contact</a></li>
+            <li><a href="index.php?controller=Beheer">Beheer</a></li>
         </ul>
     </nav>
     <img src="img/menu.png" alt="" class="menu-icon" onclick="toggleManu()">

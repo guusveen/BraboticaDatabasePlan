@@ -91,6 +91,11 @@ switch($pagina)
     case "portfolio":
         echo "<script src=\"js/portfolio.js\"></script>";
         break;
+
+        break;
+    case "beheer":
+        echo "<script src=\"js/beheer.js\"></script>";
+        break;
 }
 ?>
 </body>
