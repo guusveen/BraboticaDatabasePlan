@@ -23,7 +23,7 @@
         </thead>
 
         <tbody>
-        <?php foreach($pagina as $task) : ?>
+        <?php foreach($gebruikers as $task) : ?>
             <tr>
                 <td align="right"><?php echo $task->get('GebruikerId'); ?></td>
                 <td align="right"><?php echo $task->get('Voornaam'); ?></td>

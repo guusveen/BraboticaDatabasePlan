@@ -8,8 +8,8 @@ class BeheerController
     {
         $view = new View('Beheer');
         $view->set('title', 'Beheer');
-        //$view->set('pagina', 'Beheer');
-        $view->set('pagina', Beheer::alleGebruikers());
+        $view->set('pagina', 'Beheer');
+        $view->set('gebruikers', Beheer::alleGebruikers());
         
         $view->render();
     }
@@ -18,6 +18,7 @@ class BeheerController
     {
         $view = new View('Gebruiker.add');
         $view->set('title', 'Gebruiker Toevoegen');
+        $view->set('pagina', 'Beheer');
 
         $view->render();
     }
@@ -30,6 +31,7 @@ class BeheerController
         $task->getSingle($_GET['GebruikerId']);
 
         $view = new View('Gebruiker.add');
+        $view->set('pagina', 'Beheer');
         $view->set('title', 'Gebruiker Toevoegen');
         $view->set('GebruikerId', $_GET['GebruikerId']);
         $view->set( 'Voornaam', $task->get('Voornaam') );
