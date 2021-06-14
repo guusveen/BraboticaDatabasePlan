@@ -30,9 +30,22 @@
     /*-webkit-text-stroke-width: 0.8px;*/
 }
 
-.productFilters {
-    float: left;
-    display: none;
+.categorieen, .subCategorieen {
+    list-style-type: none;
+}
+
+.subCategorieen li, categorieen li {
+    padding-left: 20px;
+}
+
+.categorieen li, .subCategorieen li {
+    padding-bottom: 2px;
+    padding-top: 2px;
+}
+
+.categorieen li:hover, .subCategorieen li:hover {
+    background-color: lightgray;
+    padding-top: 2px;
 }
   
 .productCard {
@@ -46,11 +59,11 @@
     text-align: center;
     font-family: arial;
     border-radius: 5px;
-    
 }
 
 .productCard h2 {
-   margin-top: 0px;
+    margin-top: 0px;
+    font-size: 22px;
 }
 .productCard p {
     padding-top: 0px;
@@ -149,7 +162,7 @@
 }
 @media screen and (max-width: 1120px) {
     .productCard h2 {
-      font-size: 24px;
+      font-size: 20px;
     }
 }
 

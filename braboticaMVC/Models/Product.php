@@ -11,8 +11,10 @@ class Product extends Model
     protected float $prijs = 0;
     protected int $voorraad = 0;
     protected string $fotoAdres = "";
+    protected ?int $ouderCategorieId;
     
-    public function __construct($id, $naam, $omschrijving, $categorieId, $prijs, $voorraad, $fotoAdres)
+    public function __construct(int $id, string $naam, string $omschrijving, int $categorieId, 
+            float $prijs, int $voorraad, string $fotoAdres, int $ouderCategorieId = null)
     {
         $this->id = $id;
         $this->naam = $naam;
@@ -21,18 +23,21 @@ class Product extends Model
         $this->prijs = $prijs;
         $this->voorraad = $voorraad;
         $this->fotoAdres = $fotoAdres;
+        $this->ouderCategorieId = $ouderCategorieId;
     }
     
     public static function alleProducten()
     {
         $pdo = DB::connect();
 
-        $stmt = $pdo->prepare("SELECT * FROM producten");
-        $stmt-> execute();
+        $stmt = $pdo->prepare("SELECT producten.*, categorieen.OuderCategorie "
+                . "FROM producten "
+                . "LEFT JOIN categorieen "
+                . "ON producten.CategorieId=categorieen.CategorieId");
+        $stmt->execute();
         $result = [];
 
         $alleProducten = $stmt->fetchAll();
-
         foreach($alleProducten as $product)
         {
             array_push( $result, new Product(
@@ -42,7 +47,8 @@ class Product extends Model
                     $product['CategorieId'], 
                     $product['Prijs'], 
                     $product['Voorraad'], 
-                    $product['FotoAdres'] 
+                    $product['FotoAdres'],
+                    $product['OuderCategorie']
                     ));
         }
         return $result;

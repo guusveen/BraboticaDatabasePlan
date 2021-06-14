@@ -35,6 +35,7 @@
     ?>
     <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <script src="https://kit.fontawesome.com/8e6457f37c.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="icon" type="image/png" href="img/favicon.png"/>
     <title><?php echo $title;?></title>
 </head>

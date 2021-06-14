@@ -1,5 +1,6 @@
 <?php
 require_once ( __DIR__ . '\..\Models\Product.php' );
+require_once ( __DIR__ . '\..\Models\Categorie.php' );
 
 class ProductenController
 {
@@ -9,6 +10,7 @@ class ProductenController
         $view->set('title', 'Producten');
         $view->set('pagina', 'producten');
         $view->set('producten', Product::alleProducten());
+        $view->set('categorieen', Categorie::alleCategorieen());
         
         $view->render();
     }
