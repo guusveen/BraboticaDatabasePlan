@@ -1,0 +1,15 @@
+td {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-right: 20px;
+}
+
+
+input{
+    width: 600px;
+}
+
+.submitButton {
+    margin-top: 10px;
+    width: 150px;
+}

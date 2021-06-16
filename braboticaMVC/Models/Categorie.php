@@ -48,7 +48,6 @@ class Categorie extends Model
         $subCategorieen = [];
         foreach($alleCategorieen as $categorie)
         {
-           
             if($categorie['OuderCategorie'] === $ouderId)
             {
                 $categorieId = $categorie['CategorieId'];

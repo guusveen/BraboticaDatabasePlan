@@ -31,6 +31,12 @@
         case "beheer":
             echo "<link rel=\"stylesheet\" href=\"css/beheer.css\">";
             break;
+        case "productBeheer":
+            echo "<link rel=\"stylesheet\" href=\"css/producten.css\">";
+            break;
+        case "productUpdaten":
+            echo "<link rel=\"stylesheet\" href=\"css/productUpdaten.css\">";
+            break;
     }
     ?>
     <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>

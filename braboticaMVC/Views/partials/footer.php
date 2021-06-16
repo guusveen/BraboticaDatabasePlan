@@ -96,6 +96,9 @@ switch($pagina)
     case "beheer":
         echo "<script src=\"js/beheer.js\"></script>";
         break;
+    case "productBeheer":
+        echo "<script type=\"text/javascript\" src=\"js/producten.js\"></script>";
+        break;
 }
 ?>
 </body>
