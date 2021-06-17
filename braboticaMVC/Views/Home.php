@@ -1,5 +1,6 @@
 <?php require_once ( 'partials/header.php' ); ?>
 
+
 <div class="row">
     <div class="col-1">
         <h2>

@@ -6,14 +6,9 @@
         <p></p>
     </div>
 </div>
-<div class="Submenu">
-    <button style="margin-right:20px;" onclick="window.location.href='index.php?controller=Gebruiker'">Gebruiker beheer</button>
-    <button class="card btn" onclick="filterSelectie('robot-erwin')">Artikel beheer</button>
-    <button class="card btn" onclick="filterSelectie('robot-taoufik')">Categorie beheer</button>
-</div>
 
 <div class="BeheerContainer">
-  <form class="BeheerFormulier" id="BeheerFormulier" method="post" action="index.php?controller=gebruiker&action=save" autocomplete="off">
+  <form class="BeheerFormulier" id="BeheerFormulier" method="post" action="index.php?controller=gebruiker&action=save1" autocomplete="off">
     
   <?php if ( isset($GebruikerId) ): ?>
     <input type="hidden" name="GebruikerId" value="<?php echo $GebruikerId; ?>">
@@ -68,12 +63,8 @@
         <td></td>
         <td>
     
-    <label for="Rol">Gebruikers rol
-    <select name="Rol" style="width: 165px;">
-      <option value="<?php echo isset($Rol) ? $Rol : "Klant"; ?>">Klant</option>
-      <option value="<?php echo isset($Rol) ? $Rol : "Medewerker"; ?>">Medewerker</option>
-      <option value="<?php echo isset($Rol) ? $Rol : "Admin"; ?>">Admin</option>
-    </select>
+    <label for="Wachtwoord">
+    <input type="text" name="Wachtwoord" id="Wachtwoord" size="30" tabindex="9" placeholder="Wachtwoord" value="<?php echo isset($Wachtwoord) ? $Wachtwoord : ""; ?>">
     </label><br />
 
         </td></tr>
@@ -86,13 +77,18 @@
     <input type="text" name="Woonplaats" id="Woonplaats"  size="30" tabindex="6" placeholder="Woonplaats" value="<?php echo isset($Woonplaats) ? $Woonplaats : ""; ?>">
     </label><br />
     
+    <input type="hidden" name="Rol" value="<?php echo isset($Rol) ? $Rol : "Klant"; ?>">
+
         </td>
         <td></td>
         <td> 
   
-    <label for="Wachtwoord">
-    <input type="text" name="Wachtwoord" id="Wachtwoord" size="30" tabindex="9" placeholder="Wachtwoord" value="<?php echo isset($Wachtwoord) ? $Wachtwoord : ""; ?>">
-    </label><br />
+        <label for="VoorkeurTaal">Voorkeur taal
+    <select name="VoorkeurTaal" style="width: 172px;">
+      <option selected value="<?php echo isset($VoorkeurTaal) ? $VoorkeurTaal : "NL"; ?>">NL</option>
+      <option value="<?php echo isset($VoorkeurTaal) ? $VoorkeurTaal : "EN"; ?>">EN</option>
+    </select>
+    </label>
 
         </td></tr>
         <tr><td>
@@ -105,12 +101,7 @@
         <td></td>
         <td>
 
-    <label for="VoorkeurTaal">Voorkeur taal
-    <select name="VoorkeurTaal" style="width: 172px;">
-      <option selected value="<?php echo isset($VoorkeurTaal) ? $VoorkeurTaal : "NL"; ?>">NL</option>
-      <option value="<?php echo isset($VoorkeurTaal) ? $VoorkeurTaal : "EN"; ?>">EN</option>
-    </select>
-    </label>
+
 
         </td></tr></tbody></table>
   <button type="submit" name="submit_button" class="btn btn-primary">Verzenden</button>

@@ -28,9 +28,22 @@
             echo "<link rel=\"stylesheet\" href=\"css/portfolio.css\">";
             break;
               
-        case "beheer":
+        case "login":
+            echo "<link rel=\"stylesheet\" href=\"css/gebruiker.css\">";
+            break;
+
+        case "gebruiker":
             echo "<link rel=\"stylesheet\" href=\"css/beheer.css\">";
             break;
+
+        case "Beheer":
+            echo "<link rel=\"stylesheet\" href=\"css/beheer.css\">";
+            break;
+
+        case "beheerCategorie":
+            echo "<link rel=\"stylesheet\" href=\"css/beheer.css\">";
+            break;
+            
         case "productBeheer":
             echo "<link rel=\"stylesheet\" href=\"css/producten.css\">";
             echo "<link rel=\"stylesheet\" href=\"css/productUpdaten.css\">";

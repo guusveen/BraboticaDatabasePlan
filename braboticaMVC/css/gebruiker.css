@@ -1,5 +1,5 @@
 /* css van Erwin */
-.headerbeheer {
+.headergebruiker {
     text-align: center;
     background-image: url("../img/contact.png");
     background-size: cover;
@@ -16,6 +16,12 @@
     background: radial-gradient(circle, rgba(0,0,0,0.5) 0%, rgba(8,172,223,0.5) 100%);
     padding: 60px;
     border-radius: 5px
+}
+
+.welkom div {
+    font-size: 10px;
+    font-family: lato;
+    text-shadow: 1px 1px #000000;
 }
 
 input[type=text]:focus {
@@ -75,29 +81,18 @@ input[type=checkbox] {
             content: "\2713";
         }
 
-.BeheerContainer {
+.GebruikerContainer {
    /* display: grid;
     grid-template-columns: 20% 20% 20% 20%;
     grid-gap: 10px; */
+    border: 1px solid #2196F3;
+    padding: .5rem 1rem;
+    border-radius: .25rem;
+
+    text-align: center;
     font-size: 14px;
     font-family: lato;
     color: #006666;
-}
-
-.BeheerOverzichtContainer {
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
-    grid-gap: 10px;
-    font-size: 14px;
-    font-family: lato;
-    color: #006666;
-}
-
-.BeheerContainer th {
-    font-size: 13px;
-    font-family: lato;
-    font-style: italic;
-    color: #000000;
 }
 
 
@@ -105,7 +100,7 @@ input[type=checkbox] {
     text-align: center;
 }
 
-.BeheerFormulier {
+.GebruikerFormulier {
     /*font-size: 15px;
     font-family: lato;
     font-style: italic;

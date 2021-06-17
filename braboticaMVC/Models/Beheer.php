@@ -45,6 +45,26 @@ class Beheer extends Model
         return $taskArray;
     }
 
+    public static function widgetGebruikers()
+    {
+        $pdo = DB::connect();
+
+        $stmt = $pdo->prepare("SELECT * FROM gebruikers ORDER BY GebruikerId LIMIT 4");
+        $stmt-> execute();
+        //return $stmt->fetchAll( PDO::FETCH_OBJ );
+
+        $taskArray = [];
+
+        $allTasks = $stmt->fetchAll();
+
+        foreach($allTasks as $task)
+        {
+            array_push( $taskArray, new Beheer($task['GebruikerId'], $task['Voornaam'], $task['Achternaam'], $task['Telefoonnummer'], $task['Email'], $task['Rol'], $task['Wachtwoord'], $task['VoorkeurTaal']) );
+        }
+
+        return $taskArray;
+    }
+
     public function getSingle($GebruikerId)
     {
         $pdo = DB::connect();
