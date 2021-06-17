@@ -13,7 +13,8 @@
     <p><?php echo $product->get('omschrijving')?></p>
     <img src="<?php echo $product->get('fotoAdres')?>">
     <form action="index.php?controller=WinkelWagenController&action=addProduct">
-        
+        <input type="range" id="hoeveelheid" name="hoeveelheid" min="1" max="10">
+        <input type="submit" value="Voeg toe aan winkelwagen">
     </form>
 </div>
 

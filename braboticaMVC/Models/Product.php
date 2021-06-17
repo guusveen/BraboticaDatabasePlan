@@ -14,8 +14,14 @@ class Product extends Model
     protected ?int $ouderCategorieId;
     protected ?int $id;
     
-    public function __construct(string $naam, string $omschrijving, int $categorieId, 
-            float $prijs, int $voorraad, string $fotoAdres, int $ouderCategorieId = null, int $id = null)
+    public function __construct(string $naam, 
+            string $omschrijving, 
+            int $categorieId, 
+            float $prijs, 
+            int $voorraad, 
+            string $fotoAdres, 
+            int $ouderCategorieId = null, 
+            int $id = null)
     {
         $this->naam = $naam;
         $this->omschrijving = $omschrijving;

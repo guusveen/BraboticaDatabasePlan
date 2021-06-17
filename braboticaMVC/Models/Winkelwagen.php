@@ -8,44 +8,38 @@ class WinkelWagen extends Model
     protected int $gebruikerId;
     protected int $productId;
     protected int $aantal;
-    protected string $naam;
-    protected string $fotoAdres;
+    protected string $productNaam;
+    
 
-    public function __construct(int $gebruikerId, int $productId, int $aantal)
+    public function __construct(int $gebruikerId, int $productId, int $aantal, string $productNaam)
     {
         $this->gebruikerId = $gebruikerId;
         $this->productId = $productId;
         $this->aantal = $aantal;
+        $this->aantal = $productNaam;
     }
 
-    public static function WinkelwagenKlant(int $gebruikerId)
+    public static function WinkelwagenKlant()
     {
         $pdo = DB::connect();
 
-        $stmt = $pdo->prepare("SELECT winkelwagens.ProductId, "
-                . "winkelwagens.GebruikerId"
-                . "winkelwagens.Aantal, "
-                . "producten.ProductId, "
+        $stmt = $pdo->prepare("SELECT winkelwagens.*, "
                 . "producten.Naam, "
-                . "producten.FotoAdres "
                 . "FROM winkelwagens "
-                . "INNER JOIN producten "
+                . "LEFT JOIN producten "
                 . "ON winkelwagens.ProductId = producten.ProductId "
                 . "WHERE winkelwagens.GebruikerId = " . $gebruikerId);
         $stmt->execute();
-
         $winkelwagen = [];
-
         $winkelwagenRegels = $stmt->fetchAll();
-
         foreach($winkelwagenRegels as $winkelwagenRegel)
         {
             array_push( $winkelwagen, new Winkelwagen(
                     $winkelwagenRegel['gebruikerId'],
                     $winkelwagenRegel['productId'],
-                    $winkelwagenRegel['aantal']));
+                    $winkelwagenRegel['aantal'],
+                    $winkelwagenRegel['productNaam']));
         }
-
         return $winkelwagen;
     }
 

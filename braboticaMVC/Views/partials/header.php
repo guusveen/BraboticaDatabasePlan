@@ -33,9 +33,15 @@
             break;
         case "productBeheer":
             echo "<link rel=\"stylesheet\" href=\"css/producten.css\">";
+            echo "<link rel=\"stylesheet\" href=\"css/productUpdaten.css\">";
             break;
         case "productUpdaten":
             echo "<link rel=\"stylesheet\" href=\"css/productUpdaten.css\">";
+            echo "<link rel=\"stylesheet\" href=\"css/producten.css\">";
+            break;
+        case "zoektermBeheer":
+            echo "<link rel=\"stylesheet\" href=\"css/productUpdaten.css\">";
+            echo "<link rel=\"stylesheet\" href=\"css/producten.css\">";
             break;
     }
     ?>

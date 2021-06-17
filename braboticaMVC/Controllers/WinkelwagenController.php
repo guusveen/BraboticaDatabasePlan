@@ -5,10 +5,11 @@ class WinkelwagenController
 {
     public function index()
     {
+        $sessionGebruikerId = 1;
         $view = new View('Winkelwagen');
         $view->set('title', 'Winkelwagen');
         $view->set('pagina', 'winkelwagen');
-        $view->set('winkelwagenKlant', Winkelwagen::WinkelwagenKlant($gebruikerId));
+        $view->set('winkelwagenKlant', Winkelwagen::WinkelwagenKlant($sessionGebruikerId));
         
         $view->render();
     }

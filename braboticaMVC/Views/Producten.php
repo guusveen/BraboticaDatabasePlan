@@ -23,6 +23,11 @@
     <?php endforeach; ?>
 </ul>
 
+<form class="zoekbalk" action="index.php?controller=Zoekterm&action=zoekProduct" method="post">
+    <input type="text" id="zoekterm" name="zoekterm" >
+    <input class="submitButton" type="submit" value="zoek">
+</form>
+
 <!-- Producten -->
 <div class="row" style="margin-top: 20px;">
     <?php foreach($producten as $product) : ?> 
