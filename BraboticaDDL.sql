@@ -18,8 +18,10 @@ UNIQUE (Email)
 );
 
 CREATE TABLE Adressen (
-Postcode VARCHAR(10) NOT NULL,
+Adres VARCHAR(255) NOT NULL,
 Huisnummer INT(5) NOT NULL,
+Postcode VARCHAR(10) NOT NULL,
+Woonplaats VARCHAR(255) NOT NULL,
 Land VARCHAR(255) NOT NULL,
 GebruikerId INT(10) NOT NULL,
 PRIMARY KEY (Postcode, Huisnummer),
