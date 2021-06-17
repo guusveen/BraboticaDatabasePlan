@@ -4,56 +4,60 @@ require_once ( 'Model.php' );
 
 class Login extends Model
 {
-  private $Voornaam;
-  private $Email;
-  private $Wachtwoord;
-
-  public function LoginModel($Voornaam) {
-    $this->Voornaam = $Voornaam;
-    $this->Email = $Email;
-    $this->Wachtwoord = $Wachtwoord;
-  }
-
-  public function Get_voornaam() {
-    return $this->Voornaam;
-  }
-
-  public function Set_voornaam() {
-    $this->Voornaam = $Voornaam;
-  }   
-
-/*
-  public function uitvoeren()
-  {
-    $pdo = DB::connect();
-
-    $Email=$_POST['Email'];
-    $Wachtwoord=md5($_POST['Wachtwoord']);
     
-    $stmt = $pdo->prepare("SELECT * FROM gebruikers WHERE Email = :Email AND Wachtwoord = :Wachtwoord");
-    //$res= $this->db->select("SELECT * FROM `gebruikers` WHERE Email = '".$Email."' AND Wachtwoord = '".$Wachtwoord."'");
-    //$count = count($res);
-    $product = $stmt->fetch();
-
-    //if($stmt->rowCount() === 1)
-    if($stmt->rowCount() > 0)
+    protected string $username = "";
+    protected string $naam = "";
+    protected string $omschrijving = "";
+    protected int $categorieId = 0;
+    protected float $prijs = 0;
+    protected int $voorraad = 0;
+    protected string $fotoAdres = "";
+    protected ?int $ouderCategorieId;
+    protected ?int $id;
+    
+    public function __construct(string $username, string $naam, string $omschrijving, int $categorieId, 
+            float $prijs, int $voorraad, string $fotoAdres, int $ouderCategorieId = null, int $id = null)
     {
-    
-    //if ($count > 0) {
-      
-      Session::init();
-      Session::set('role', "user");
-      Session::set('loggedIn', true);
-      Session::set('Email', $Email);
-      Session::set('Wachtwoord', $res[0]['Wachtwoord']);
-      header('location: '.URL.'login/index');
-    } 
-       else {
-      Session::set('loggedIn', false);
-      header('location: '.URL);
+        $this->username = $username;
+        $this->naam = $naam;
+        $this->omschrijving = $omschrijving;
+        $this->categorieId = $categorieId;
+        $this->prijs = $prijs;
+        $this->voorraad = $voorraad;
+        $this->fotoAdres = $fotoAdres;
+        $this->ouderCategorieId = $ouderCategorieId;
+        $this->id = $id;
     }
-  }
-  */
+    
+    public static function login()
+    {
+        try
+        {
+            if(isset($_POST["login"]))  
+      {
+        $pdo = DB::connect();
 
+        $stmt = $pdo->prepare("SELECT * FROM users WHERE username = :username AND password = :password");
+        $stmt->execute([
+            ':username' => $_GET['username']
+        ]);
+        $count = $stmt->rowCount();  
+                if($count > 0)  
+                {  
+                     $_SESSION["username"] = $_POST["username"];  
+                     header("location:login_success.php");  
+                }  
+                else  
+                {  
+                     $message = '<label>Wrong Data</label>';  
+                }
+
+        $user = $stmt->fetch();
+    }
+    }
+    catch(PDOException $error)  
+     {  
+          $message = $error->getMessage();  
+     } 
+    }
 }
-?>

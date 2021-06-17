@@ -18,6 +18,12 @@
     border-radius: 5px
 }
 
+.welkom div {
+    font-size: 10px;
+    font-family: lato;
+    text-shadow: 1px 1px #000000;
+}
+
 input[type=text]:focus {
     outline: none !important;
     border-color: #e7B268;

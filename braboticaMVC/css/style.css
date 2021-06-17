@@ -76,6 +76,12 @@ button:hover, footer button:active {
     align-items: center;
 }
 
+.welkom div {
+    font-size: 20px;
+    font-family: lato;
+    text-shadow: 1px 1px #000000;
+}
+
 nav {
     flex: 1;
     text-align: right;

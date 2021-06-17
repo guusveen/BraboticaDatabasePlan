@@ -165,6 +165,7 @@ class Gebruiker extends Model
     {
         $pdo = DB::connect();
 
+        $rol = "Klant";
        
             $stmt = $pdo->prepare('INSERT INTO `gebruikers` (`GebruikerId`,`Voornaam`, `Achternaam`, `Telefoonnummer`, `Email`, `Rol`, `Wachtwoord`, `VoorkeurTaal`) VALUES ( "", :Voornaam, :Achternaam, :Telefoonnummer, :Email, :Rol, :Wachtwoord, :VoorkeurTaal) ');
                 
@@ -173,7 +174,7 @@ class Gebruiker extends Model
                 ':Achternaam' => $this->Achternaam,
                 ':Telefoonnummer' => $this->Telefoonnummer,
                 ':Email' => $this->Email,
-                ':Rol' => $this->Rol,
+                ':Rol' => $rol,
                 ':Wachtwoord' => $this->Wachtwoord,
                 ':VoorkeurTaal' => $this->VoorkeurTaal
             ]);

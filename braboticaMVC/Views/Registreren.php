@@ -77,6 +77,8 @@
     <input type="text" name="Woonplaats" id="Woonplaats"  size="30" tabindex="6" placeholder="Woonplaats" value="<?php echo isset($Woonplaats) ? $Woonplaats : ""; ?>">
     </label><br />
     
+    <input type="hidden" name="Rol" value="<?php echo isset($Rol) ? $Rol : "Klant"; ?>">
+
         </td>
         <td></td>
         <td> 

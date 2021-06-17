@@ -71,7 +71,7 @@ class GebruikerController
     {
         $task = new Gebruiker('', $_POST['Voornaam'], $_POST['Achternaam'], $_POST['Adres'], $_POST['Huisnummer'], $_POST['Postcode'], $_POST['Woonplaats'], $_POST['Land'], $_POST['Telefoonnummer'], $_POST['Email'], '', $_POST['Wachtwoord'], $_POST['VoorkeurTaal']);
         $task->save1();
-        header("Location: index.php?controller=Gebruiker");
+        header("Location: index.php");
     }
 
     public function delete()
