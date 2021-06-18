@@ -2,7 +2,7 @@
 
 require_once ( 'Model.php' );
 
-class Login extends Model
+class BeheerLogin extends Model
 {
     
     protected int $GebruikerId;
