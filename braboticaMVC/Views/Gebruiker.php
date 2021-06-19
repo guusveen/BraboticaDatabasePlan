@@ -1,5 +1,8 @@
-<?php require_once ( 'partials/header.php' ); ?>
+<?php require_once ( 'partials/header.php' ); 
 
+if (isset($_SESSION['rol']) == 'Beheer')              
+             { 
+?>
 <div class="headerbeheer">
     <div class="transparentLayer">
         <h1><?php echo $title; ?></h1>
@@ -8,8 +11,8 @@
 </div>
 <div class="Submenu">
     <button style="margin-right:20px;" onclick="window.location.href='index.php?controller=Gebruiker&action=add'">Gebruiker toevoegen</button>
-    <button style="margin-right:20px;" onclick="window.location.href='index.php?controller=BeheerArtikel'">Artikel beheer</button>
-    <button style="margin-right:20px;" onclick="window.location.href='index.php?controller=BeheerCategorie'">Categorie beheer</button>
+    <button style="margin-right:20px;" onclick="window.location.href='index.php?controller=Producten&action=productBeheerPagina'">Producten beheer</button>
+    <button style="margin-right:20px;" onclick="window.location.href='index.php?controller=ZoektermBeheer'">Zoektermen beheer</button>
 </div>
 
 <div class="BeheerContainer">
@@ -62,5 +65,12 @@
         </tbody>
     </table>
 </div>
+<?php
+
+} else {
+
+    header("location:index.php"); 
+}
+?>
 
 <?php require_once ( 'partials/footer.php' ); ?>

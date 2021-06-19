@@ -1,4 +1,8 @@
-<?php require_once ( 'partials/header.php' ); ?>
+<?php require_once ( 'partials/header.php' ); 
+
+if (isset($_SESSION['rol']) == 'Beheer')              
+             { 
+?>
 
 <!-- Header -->
 <div class="headerProducten">
@@ -71,5 +75,13 @@
     </div>
     <?php endforeach; ?> 
 </div>
+
+<?php
+
+} else {
+
+    header("location:index.php"); 
+}
+?>
 
 <?php require_once ( 'partials/footer.php' ); ?>

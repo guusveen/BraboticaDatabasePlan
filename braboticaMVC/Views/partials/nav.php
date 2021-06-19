@@ -10,24 +10,24 @@
             <li><a href="index.php?controller=Downloads">Downloads</a></li>
             <li><a href="index.php?controller=Contact">Contact</a></li>
             <?php
-             if (isset($_SESSION['email']))              
+             if (isset($_SESSION['rol']) == 'Beheer')              
              {  
-                   
-                 // echo '<br /><br /><a href="logout.php">Logout</a>';
-
-                //echo '<li><a href="index.php?controller=Login">Uitloggen</a></li>';
-                echo '<li><a href="index.php?controller=Winkelwagen">Winkelwagen</a></li>';
                 echo '<li><a href="index.php?controller=Login&action=logout">Uitloggen</a></li>';
                 echo '<li><a href="index.php?controller=Beheer">Beheer</a></li>';
-                echo '<li><a href="index.php?controller=Producten&action=productBeheerPagina">Productbeheer</a></li>';
                 echo '<li style="font-size: 12px; text-align: left; color: #669999">Welkom <br> '.$_SESSION['email'].'</li>';
-                //echo $Voornaam;
-             }  
-             else
-             {  
-                  echo '<li><a href="index.php?controller=Login">Inloggen</a></li>';
-                  //header("location:pdo_login.php");  
-             } 
+                
+             }
+             elseif (isset($_SESSION['email']))              
+                 {  
+                    echo '<li><a href="index.php?controller=Login&action=logout">Uitloggen</a></li>';
+                    
+                    echo '<li style="font-size: 12px; text-align: left; color: #669999">Welkom <br> '.$_SESSION['email'].'</li>';
+                }
+                else       
+                 {  
+                      echo '<li><a href="index.php?controller=Login">Inloggen</a></li>';
+                 } 
+             
             ?>
             
         </ul>

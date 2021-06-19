@@ -2,14 +2,10 @@
 
 <div class="headergebruiker">
     <div class="transparentLayer">
-        <div style="text-align: right; vertical-align: top;"><a href="index.php?controller=beheerLogin"><img src="img/beheer.png" width="15" height="15"></a></div>
         <h1><?php echo $title; ?></h1>
         <p></p>
-        
     </div>
 </div>
-
-
 
 <div class="GebruikerContainer">
 <?php 
@@ -25,7 +21,7 @@
       $pdo = DB::connect();
 
       $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
-      if(isset($_POST["login"]))  
+      if(isset($_POST["beheer"]))  
       {  
            if(empty($_POST["email"]) || empty($_POST["wachtwoord"]))  
            {  
@@ -33,9 +29,9 @@
            }  
            else  
            {  
-                $query = "SELECT * FROM gebruikers WHERE email = :email AND wachtwoord = :wachtwoord AND Rol = 'Klant'";  
+                $query = "SELECT * FROM gebruikers WHERE email = :email AND wachtwoord = :wachtwoord AND (Rol='Medewerker' OR Rol='Admin')";  
                 $stmt = $pdo->prepare($query);
-                
+
                 $stmt->execute(
 
                           
@@ -52,6 +48,7 @@
                 {  
                      $_SESSION["email"]    = $_POST["email"];
                      $_SESSION["voornaam"] = $Voornaam;
+                     $_SESSION["rol"]      = $_POST["rol"];
                        
                      header("location:index.php");  
                 }
@@ -78,7 +75,7 @@
                 
                 <form method="post">
                      <input hidden="true" type="text" name="voornaam" id="voornaam" value="<?php $Voornaam ?>" />
-                     <input hidden="true" type="text" name="rol" id="rol" value="klant" />  
+                     <input hidden="true" type="text" name="rol" id="rol" value="beheer" />  
                      <label for="Email">
                      <input type="text" name="email" id="Email" size="44" tabindex="1" placeholder="Email adres" />  
                      </label><p></p>
@@ -87,8 +84,7 @@
                      <input type="password" name="wachtwoord" id="Wachtwoord" size="44" tabindex="2" placeholder="Wachtwoord" />  
                      </label><p></p>
                      
-                     <input type="submit" name="login" id="submit" value="Login" />
-                     <p>Nieuwe gebruiker? <a href="index.php?controller=Gebruiker&action=nieuwegebruiker">Registreer hier</a></p>
+                     <input type="submit" name="beheer" id="submit" value="Login" />
                 </form>
               </div>
             </div>

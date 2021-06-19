@@ -2,7 +2,7 @@
 
 require_once ( 'Model.php' );
 
-class Login extends Model
+class BeheerLogin extends Model
 {
     
     protected int $GebruikerId;
@@ -30,7 +30,6 @@ class Login extends Model
         $stmt->execute([
             ':email' => $_GET['email']
         ]);
-        $gebruiker = $stmt->fetch();
         $count = $stmt->rowCount();  
                 if($count > 0)  
                 {  
