@@ -3,9 +3,6 @@ Rol VARCHAR(255) NOT NULL,
 PRIMARY KEY (Rol)
 );
 
-INSERT INTO Rollen 
-Values ('Klant'), ('Medewerker'), ('Admin');
-
 CREATE TABLE Gebruikers (
 GebruikerId INT(10) NOT NULL AUTO_INCREMENT,
 Voornaam VARCHAR(255) NOT NULL,
@@ -14,14 +11,17 @@ Telefoonnummer VARCHAR(15),
 Email VARCHAR(255) NOT NULL,
 Rol VARCHAR(255) NOT NULL DEFAULT 'Klant',
 Wachtwoord VARCHAR(255) NOT NULL,
+VoorkeurTaal VARCHAR(10) DEFAULT 'NL',
 PRIMARY KEY (GebruikerId),
 FOREIGN KEY (Rol) REFERENCES Rollen(Rol),
 UNIQUE (Email)
 );
 
 CREATE TABLE Adressen (
-Postcode VARCHAR(10) NOT NULL,
+Adres VARCHAR(255) NOT NULL,
 Huisnummer INT(5) NOT NULL,
+Postcode VARCHAR(10) NOT NULL,
+Woonplaats VARCHAR(255) NOT NULL,
 Land VARCHAR(255) NOT NULL,
 GebruikerId INT(10) NOT NULL,
 PRIMARY KEY (Postcode, Huisnummer),
@@ -63,6 +63,7 @@ Omschrijving VARCHAR(255) NOT NULL,
 CategorieId INT(10) NOT NULL,
 Prijs DECIMAL(10,2) NOT NULL,
 Voorraad INT DEFAULT 0,
+FotoAdres VARCHAR(255),
 PRIMARY KEY (ProductId),
 FOREIGN KEY (CategorieId) REFERENCES Categorieen(CategorieId)
 );
@@ -83,4 +84,11 @@ Aantal INT(10) NOT NULL,
 PRIMARY KEY (GebruikerId, ProductId),
 FOREIGN KEY (GebruikerId) REFERENCES Gebruikers(GebruikerId),
 FOREIGN KEY (ProductId) REFERENCES Producten(ProductId)
+);
+
+CREATE TABLE Zoektermen (
+ZoektermId INT(10) NOT NULL AUTO_INCREMENT,
+Zoekterm VARCHAR(255) NOT NULL,
+Zoekdatum DATETIME NOT NULL,
+PRIMARY KEY (ZoektermId)
 );
