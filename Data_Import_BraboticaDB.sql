@@ -18,13 +18,14 @@ INSERT INTO `gebruikers` (`GebruikerId`, `Voornaam`, `Achternaam`, `Telefoonnumm
 --
 -- Gegevens worden geïmporteerd voor tabel `Adressen`
 --
-INSERT INTO `adressen` (`Postcode`, `Huisnummer`, `Land`, `GebruikerId`) VALUES 
-('5461PH', '2', 'Nederland', '1'), 
-('3657AV', '56', 'Nederland', '2'),
-('2516AS', '103', 'Nederland', '3'), 
-('2136LT', '4', 'Nederland', '4'),
-('3790FK', '5', 'Nederland', '5'),
-('6390KS', '62', 'Nederland', '6');
+--
+INSERT INTO `adressen` (`Adres`, `Huisnummer`, `Postcode`, `Woonplaats`, `Land`, `GebruikerId`) VALUES
+('Beukelaar', '2', '5461PH', 'Veghel', 'Nederland', '1'),
+('Heuvel', '56', '3657AV', 'Erp', 'Nederland', '2'),
+('Hoofdstraat', '103', '2516AS', 'Breda', 'Nederland', '3'),
+('Kerkstraat', '4', '2136LT', 'Eindhoven', 'Nederland', '4'),
+('Sluistraat', '15', '3790FK', 'Domburg', 'Nederland', '5'),
+('Stadhuislaan', '62', '6390KS', 'Best', 'Nederland', '6');
 
 --
 -- Gegevens worden geïmporteerd voor tabel `Orders`
