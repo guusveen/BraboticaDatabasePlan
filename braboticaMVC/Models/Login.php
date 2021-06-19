@@ -41,11 +41,14 @@ class Login extends Model
         $stmt->execute([
             ':username' => $_GET['username']
         ]);
+        $gebruiker = $stmt->fetch();
         $count = $stmt->rowCount();  
                 if($count > 0)  
                 {  
-                     $_SESSION["username"] = $_POST["username"];  
-                     header("location:login_success.php");  
+                    $gebruiker = $stmt->fetch();
+                    $_SESSION["username"] = $_POST["username"];
+                    $_SESSION["gebruikerId"] = $gebruiker['id'];
+                    header("location:login_success.php");  
                 }  
                 else  
                 {  

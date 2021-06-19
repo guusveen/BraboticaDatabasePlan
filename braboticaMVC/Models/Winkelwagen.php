@@ -2,67 +2,79 @@
 
 require_once ( 'Model.php' );
 
-class WinkelWagen extends Model
+class Winkelwagen extends Model
 {
     
     protected int $gebruikerId;
-    protected int $productId;
-    protected int $aantal;
-    protected string $productNaam;
+    protected ?int $productId;
+    protected ?int $aantal;
+    protected ?string $productNaam;
+    protected ?float $prijs;
+    protected ?float $totaal;
     
 
-    public function __construct(int $gebruikerId, int $productId, int $aantal, string $productNaam)
+    public function __construct(int $gebruikerId, 
+            int $productId = null, 
+            int $aantal = null, 
+            string $productNaam = null,
+            float $prijs = null,
+            float $totaal = null)
     {
         $this->gebruikerId = $gebruikerId;
         $this->productId = $productId;
         $this->aantal = $aantal;
-        $this->aantal = $productNaam;
+        $this->productNaam = $productNaam;
+        $this->prijs = $prijs;
+        $this->totaal = $totaal;
     }
 
-    public static function WinkelwagenKlant()
+    public function winkelwagenKlant()
     {
         $pdo = DB::connect();
 
-        $stmt = $pdo->prepare("SELECT winkelwagens.*, "
-                . "producten.Naam, "
+        $stmt = $pdo->prepare("SELECT winkelwagens.*, producten.Naam, producten.Prijs "
                 . "FROM winkelwagens "
                 . "LEFT JOIN producten "
                 . "ON winkelwagens.ProductId = producten.ProductId "
-                . "WHERE winkelwagens.GebruikerId = " . $gebruikerId);
+                . "WHERE winkelwagens.GebruikerId = " . $this->gebruikerId);
         $stmt->execute();
         $winkelwagen = [];
         $winkelwagenRegels = $stmt->fetchAll();
         foreach($winkelwagenRegels as $winkelwagenRegel)
         {
             array_push( $winkelwagen, new Winkelwagen(
-                    $winkelwagenRegel['gebruikerId'],
-                    $winkelwagenRegel['productId'],
-                    $winkelwagenRegel['aantal'],
-                    $winkelwagenRegel['productNaam']));
+                    $winkelwagenRegel['GebruikerId'],
+                    $winkelwagenRegel['ProductId'],
+                    $winkelwagenRegel['Aantal'],
+                    $winkelwagenRegel['Naam'],
+                    $winkelwagenRegel['Prijs'],
+                    $winkelwagenRegel['Prijs'] * $winkelwagenRegel['Aantal']));
         }
         return $winkelwagen;
     }
 
-    public static function WinkelwagenRegel(int $gebruikerId, int $productId)
+    public function winkelwagenRegel()
     {
         $pdo = DB::connect();
 
-        $stmt = $pdo->prepare("SELECT * FROM winkelwagens "
+        $stmt = $pdo->prepare("SELECT winkelwagens.*, producten.Naam "
+                . "FROM winkelwagens "
+                . "LEFT JOIN producten "
+                . "ON winkelwagens.ProductId = producten.ProductId "
                 . "WHERE GebruikerId = :gebruikerId "
-                . "AND ProductId = :productId");
+                . "AND winkelwagens.ProductId = :productId");
         $stmt->execute([
-            ':gebruikerId' => $gebruikerId,
-            ':productId' => $productId
+            ':gebruikerId' => $this->gebruikerId,
+            ':productId' => $this->productId
         ]);
 
         $winkelwagenRegel = $stmt->fetch();
-
         if($stmt->rowCount() > 0)
         {
-            $this->gebruikerId = $winkelwagenRegel['gebruikerId'];
-            $this->productId = $winkelwagenRegel['productId'];
-            $this->aantal = $winkelwagenRegel['aantal'];
-            
+            if($this->aantal == null)
+            {
+                $this->aantal = $winkelwagenRegel['Aantal'];
+            }
             return $this;
         } else
         {
@@ -70,33 +82,33 @@ class WinkelWagen extends Model
         }
     }
 
-    public static function save(int $gebruikerId, int $productId, int $aantal)
+    public function save()
     {
         $pdo = DB::connect();
-        if ( $this->getWinkelwagenRegel($gebruikerId, $productId) != null )
+        if ($this->winkelwagenRegel() != null)
         {
             $stmt = $pdo->prepare("UPDATE `winkelwagens` "
-                    . "SET aantal = :aantal "
+                    . "SET Aantal = :aantal "
                     . "WHERE GebruikerId = :gebruikerId "
                     . "AND ProductId = :productId");
             $stmt->execute([
-                ':aantal' => $_POST['aantal'],
-                ':gebruikerId' => $_POST['gebruikerid'],
-                ':productId' => $_POST['productid']
+                ':aantal' => $this->aantal,
+                ':gebruikerId' => $this->gebruikerId,
+                ':productId' => $this->productId
             ]);
         } else
         {
             $stmt = $pdo->prepare("INSERT INTO `winkelwagens` (GebruikerId, ProductId, Aantal) "
                     . "VALUES (:gebruikerId, :productId, :aantal)");
             $stmt->execute([
-                ':gebruikerId' => $_POST['gebruikerid'],
-                ':productId' => $_POST['productid'],
-                ':aantal' => $_POST['aantal']
+                ':gebruikerId' => $this->gebruikerId,
+                ':productId' => $this->productId,
+                ':aantal' => $this->aantal
             ]);
         }
     }
 
-    public static function deleteProduct(int $gebruikerId, int $productId)
+    public function delete()
     {
         $pdo = DB::connect();
         
@@ -104,8 +116,8 @@ class WinkelWagen extends Model
                 . "WHERE GebruikerId = :gebruikerId "
                 . "AND ProductId = :productId");
         $stmt->execute([
-                ':gebruikerId' => $_POST['gebruikerid'],
-                ':productId' => $_POST['productid']
+                ':gebruikerId' => $this->gebruikerId,
+                ':productId' => $this->productId
             ]);
     }
 

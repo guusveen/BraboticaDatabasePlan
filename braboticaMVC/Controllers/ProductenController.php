@@ -22,7 +22,7 @@ class ProductenController
         $view = new View('Product');
         $view->set('title', 'Producten');
         $view->set('pagina', 'product');
-        $view->set('product', Product::getProduct($_GET['productId']));
+        $view->set('product', Product::getProduct());
         
         $view->render();
     }

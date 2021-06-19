@@ -7,7 +7,7 @@ class Gebruiker extends Model
     protected string $GebruikerId;
     protected string $Voornaam;
     protected string $Achternaam;
-    protected string $adres;
+    protected string $Adres;
     protected string $Huisnummer;
     protected string $Postcode;
     protected string $Woonplaats;

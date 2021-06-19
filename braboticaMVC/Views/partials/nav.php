@@ -16,6 +16,7 @@
                  // echo '<br /><br /><a href="logout.php">Logout</a>';
 
                 //echo '<li><a href="index.php?controller=Login">Uitloggen</a></li>';
+                echo '<li><a href="index.php?controller=Winkelwagen">Winkelwagen</a></li>';
                 echo '<li><a href="index.php?controller=Login&action=logout">Uitloggen</a></li>';
                 echo '<li><a href="index.php?controller=Beheer">Beheer</a></li>';
                 echo '<li><a href="index.php?controller=Producten&action=productBeheerPagina">Productbeheer</a></li>';

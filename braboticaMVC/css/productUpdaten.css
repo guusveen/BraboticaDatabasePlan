@@ -4,6 +4,9 @@ td {
     padding-right: 20px;
 }
 
+th{
+    text-align: left;
+}
 
 input{
     width: 600px;

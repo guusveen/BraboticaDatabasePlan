@@ -15,6 +15,9 @@
         case "producten":
             echo "<link rel=\"stylesheet\" href=\"css/producten.css\">";
             break;
+        case "product":
+            echo "<link rel=\"stylesheet\" href=\"css/producten.css\">";
+            break;
         case "contact":
             echo "<link rel=\"stylesheet\" href=\"css/overOns.css\">
                     <link rel=\"stylesheet\" href=\"css/contact.css\">
@@ -55,6 +58,10 @@
         case "zoektermBeheer":
             echo "<link rel=\"stylesheet\" href=\"css/productUpdaten.css\">";
             echo "<link rel=\"stylesheet\" href=\"css/producten.css\">";
+            break;
+        case "winkelwagen":
+            echo "<link rel=\"stylesheet\" href=\"css/producten.css\">";
+            echo "<link rel=\"stylesheet\" href=\"css/winkelwagen.css\">";
             break;
     }
     ?>

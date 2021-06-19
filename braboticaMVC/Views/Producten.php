@@ -38,7 +38,7 @@
             <div class="productCard">
                 <img src="<?php echo $product->get('fotoAdres')?>" style="width:100%">
                 <h2><?php echo $product->get('naam') ?></h2>
-                <p class="productPrice"><?php echo $product->get('prijs') ?> Euro</p>
+                <p class="productPrice">€<?php echo $product->get('prijs') ?></p>
                 <p><?php echo $product->get('omschrijving')?></p>
             </div>
         </a>

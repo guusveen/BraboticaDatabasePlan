@@ -13,7 +13,7 @@
     <button style="margin-right:20px;" onclick="window.location.href='index.php?controller=Producten&action=productBeheerPagina'">
         <div><img class="overview" src="img/artikelen.png"><br />Producten beheer</div>
     </button>
-    <button style="margin-right:20px;" onclick="window.location.href='index.php?controller=BeheerZoektermen'">
+    <button style="margin-right:20px;" onclick="window.location.href='index.php?controller=Zoekterm'">
         <div><img class="overview" src="img/categorieen.png"><br />Zoektermen beheer</div>
     </button>
 </div>
