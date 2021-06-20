@@ -47,11 +47,14 @@
                      )  
                 );               
 
+                $gebruiker = $stmt->fetch();
                 $count = $stmt->rowCount(); 
                 if($count > 0)  
                 {  
                      $_SESSION["email"]    = $_POST["email"];
                      $_SESSION["voornaam"] = $Voornaam;
+                     $_SESSION["gebruikerId"] = $gebruiker['GebruikerId'];
+                     
                        
                      header("location:index.php");  
                 }

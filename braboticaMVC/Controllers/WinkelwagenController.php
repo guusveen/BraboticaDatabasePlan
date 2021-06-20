@@ -8,11 +8,10 @@ class WinkelwagenController
 {
     public function index()
     {
-        $sessionGebruikerId = 1;
         $view = new View('Winkelwagen');
         $view->set('title', 'Winkelwagen');
         $view->set('pagina', 'winkelwagen');
-        $winkelwagen = new Winkelwagen($sessionGebruikerId);
+        $winkelwagen = new Winkelwagen($_SESSION['gebruikerId']);
         $view->set('winkelwagenKlant', $winkelwagen->winkelwagenKlant());
         $view->set('eindbedrag', self::getEindbedrag($winkelwagen->winkelwagenKlant()));
         $view->render();
@@ -20,18 +19,17 @@ class WinkelwagenController
     
     public function save()
     {
-        $sessionGebruikerId = 1;
-        $winkelwagen = new Winkelwagen($sessionGebruikerId, $_POST['productId'], $_POST['aantal']);
+        $winkelwagen = new Winkelwagen($_SESSION['gebruikerId'], $_POST['productId'], $_POST['aantal']);
         $winkelwagen->save();
         header("Location: index.php?controller=Winkelwagen");
     }
 
     public function delete()
     {
-        if( !isset($_POST['gebruikerid']) || !isset($_POST['productid']))
+        if( !isset($_SESSION['gebruikerId']) || !isset($_POST['productid']))
             throw new Exception('geen gebruikerid of productid gevonden');
         
-        $winkelwagen = new Winkelwagen($_POST['gebruikerid'], $_POST['productid'], 0);
+        $winkelwagen = new Winkelwagen($_SESSION['gebruikerId'], $_POST['productid'], 0);
         $winkelwagen->delete();
 
         header("Location: index.php?controller=Winkelwagen");
@@ -49,14 +47,13 @@ class WinkelwagenController
     
     public function bestel()
     {
-        $sessionGebruikerId = 1;
-        $adres = (new Adres($sessionGebruikerId))->getAdres();
+        $adres = (new Adres($_SESSION['gebruikerId']))->getAdres();
         
         // Zet de order in de database
-        $order = new Order($sessionGebruikerId, $adres->get("postcode"), $adres->get('huisnummer'));
+        $order = new Order($_SESSION['gebruikerId'], $adres->get("postcode"), $adres->get('huisnummer'));
         $orderId = $order->create();
         
-        $winkelwagen = (new Winkelwagen($sessionGebruikerId))->winkelwagenKlant();
+        $winkelwagen = (new Winkelwagen($_SESSION['gebruikerId']))->winkelwagenKlant();
         foreach($winkelwagen as $winkelwagenRegel /*@var Winkelwagen $winkelwagenRegel*/)
         {
             // Zet voor elke winkelwagenregel een orderregel in de DB en 

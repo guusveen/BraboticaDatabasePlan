@@ -1,5 +1,4 @@
-<?php  
- session_start();  ?>
+
 <div class="navbar">
     <a href="index.php"><img src="img/logo1.png" alt="logo" class="logo"></a>
     <nav>
@@ -19,6 +18,7 @@
              }
              elseif (isset($_SESSION['email']))              
                  {  
+                    echo '<li><a href="index.php?controller=Winkelwagen">Winkelwagen</a></li>';
                     echo '<li><a href="index.php?controller=Login&action=logout">Uitloggen</a></li>';
                     
                     echo '<li style="font-size: 12px; text-align: left; color: #669999">Welkom <br> '.$_SESSION['email'].'</li>';

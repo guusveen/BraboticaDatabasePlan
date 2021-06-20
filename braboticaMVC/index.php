@@ -1,7 +1,10 @@
 <?php
 require_once ( 'Controllers/Controller.php' );
 require_once ( 'DB.php' );
-
+if(!isset($_SESSION)) 
+{ 
+   session_start();
+} 
 $controller = "Home";
 $action = "index";
 
