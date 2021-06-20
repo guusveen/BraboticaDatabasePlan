@@ -11,6 +11,10 @@ class ProductenController
         $view->set('pagina', 'producten');
         $view->set('producten', Product::alleProducten());
         $view->set('categorieen', Categorie::alleCategorieen());
+        if(isset($_SESSION['taal']))
+        {
+            $view->set('taal', $_SESSION["taal"]);
+        }
         
         $view->render();
     }
@@ -23,6 +27,7 @@ class ProductenController
         $view->set('title', 'Producten');
         $view->set('pagina', 'product');
         $view->set('product', Product::getProduct());
+        $view->set('taal', $_SESSION["taal"]);
         
         $view->render();
     }
@@ -34,6 +39,7 @@ class ProductenController
         $view->set('pagina', 'productBeheer');
         $view->set('producten', Product::alleProducten());
         $view->set('categorieen', Categorie::alleCategorieen());
+        $view->set('taal', $_SESSION["taal"]);
         
         $view->render();
     }
@@ -46,6 +52,7 @@ class ProductenController
         $view->set('title', 'Product updaten');
         $view->set('pagina', 'productUpdaten');
         $view->set('product', Product::getProduct($_GET['productId']));
+        $view->set('taal', $_SESSION["taal"]);
         
         $view->render();
     }

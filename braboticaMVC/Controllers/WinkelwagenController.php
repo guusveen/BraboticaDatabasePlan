@@ -11,6 +11,10 @@ class WinkelwagenController
         $view = new View('Winkelwagen');
         $view->set('title', 'Winkelwagen');
         $view->set('pagina', 'winkelwagen');
+        if(isset($_SESSION['taal']))
+        {
+            $view->set('taal', $_SESSION["taal"]);
+        }
         $winkelwagen = new Winkelwagen($_SESSION['gebruikerId']);
         $view->set('winkelwagenKlant', $winkelwagen->winkelwagenKlant());
         $view->set('eindbedrag', self::getEindbedrag($winkelwagen->winkelwagenKlant()));
@@ -65,7 +69,6 @@ class WinkelwagenController
             $orderRegel->create();
             $winkelwagenRegel->delete();
         }
-        //var_dump($winkelwagen); die;
         
         header("Location: index.php?controller=Winkelwagen");
     }

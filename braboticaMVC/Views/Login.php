@@ -37,30 +37,28 @@
                 $stmt = $pdo->prepare($query);
                 
                 $stmt->execute(
-
-                          
+                    
                      array(  
                           'email'          =>     $_POST["email"],  
                           'wachtwoord'     =>     $_POST["wachtwoord"],
-                          
-
                      )  
                 );               
 
-                $gebruiker = $stmt->fetch();
+                
                 $count = $stmt->rowCount(); 
                 if($count > 0)  
                 {  
-                     $_SESSION["email"]    = $_POST["email"];
-                     $_SESSION["voornaam"] = $Voornaam;
-                     $_SESSION["gebruikerId"] = $gebruiker['GebruikerId'];
-                     
-                       
-                     header("location:index.php");  
+                    $gebruiker = $stmt->fetch();
+                    $_SESSION["email"]    = $_POST["email"];
+                    $_SESSION["voornaam"] = $Voornaam;
+                    $_SESSION["gebruikerId"] = $gebruiker['GebruikerId'];
+                    $_SESSION["taal"] = $gebruiker['VoorkeurTaal'];
+
+                    header("location:index.php");  
                 }
                 else  
                 {  
-                     $message = '<label>Verkeerde gegevens</label>';  
+                    $message = '<label>Verkeerde gegevens</label>';  
                 }
            }  
       }  

@@ -1,3 +1,8 @@
+<?php
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -75,3 +80,9 @@
 <div class="container">
 
    <?php require_once 'nav.php' ?>
+    
+    <div>
+        <span><a href="index.php?controller=Home&action=setTaalNL">NL</a></span>
+        <span><a href="index.php?controller=Home&action=setTaalEN">EN</a></span>
+    </div>
+    

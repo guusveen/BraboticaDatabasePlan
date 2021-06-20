@@ -10,6 +10,10 @@ class GebruikerController
         $view->set('title', 'Gebruikersbeheer');
         $view->set('pagina', 'gebruiker');
         $view->set('gebruiker', Gebruiker::alleGebruikers());
+        if(isset($_SESSION['taal']))
+        {
+            $view->set('taal', $_SESSION["taal"]);
+        }
         
         $view->render();
     }
@@ -19,6 +23,10 @@ class GebruikerController
         $view = new View('Registreren');
         $view->set('title', 'Gebruiker registreren');
         $view->set('pagina', 'gebruiker');
+        if(isset($_SESSION['taal']))
+        {
+            $view->set('taal', $_SESSION["taal"]);
+        }
 
         $view->render();
     }
@@ -28,6 +36,10 @@ class GebruikerController
         $view = new View('Gebruiker.add');
         $view->set('title', 'Gebruiker Toevoegen');
         $view->set('pagina', 'gebruiker');
+        if(isset($_SESSION['taal']))
+        {
+            $view->set('taal', $_SESSION["taal"]);
+        }
 
         $view->render();
     }

@@ -8,6 +8,10 @@ class LoginController
         $view = new View('Login');
         $view->set('title', 'Inloggen');
         $view->set('pagina', 'login');
+        if(isset($_SESSION['taal']))
+        {
+            $view->set('taal', $_SESSION["taal"]);
+        }
         //$view->set('producten', Product::alleProducten());
         //$view->set('categorieen', Categorie::alleCategorieen());
         

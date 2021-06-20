@@ -46,15 +46,17 @@
                 $count = $stmt->rowCount(); 
                 if($count > 0)  
                 {  
-                     $_SESSION["email"]    = $_POST["email"];
-                     $_SESSION["voornaam"] = $Voornaam;
-                     $_SESSION["rol"]      = $_POST["rol"];
+                    $_SESSION["email"]    = $_POST["email"];
+                    $_SESSION["voornaam"] = $Voornaam;
+                    $_SESSION["rol"]      = $_POST["rol"];
+                    $_SESSION["gebruikerId"] = $gebruiker['GebruikerId'];
+                    $_SESSION["taal"] = $gebruiker['VoorkeurTaal'];
                        
-                     header("location:index.php");  
+                    header("location:index.php");  
                 }
                 else  
                 {  
-                     $message = '<label>Verkeerde gegevens</label>';  
+                    $message = '<label>Verkeerde gegevens</label>';  
                 }
            }  
       }  

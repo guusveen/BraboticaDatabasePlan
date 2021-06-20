@@ -10,6 +10,10 @@ class BeheerController
         $view->set('title', 'Beheer');
         $view->set('pagina', 'Beheer');
         $view->set('gebruikers', Beheer::alleGebruikers());
+        if(isset($_SESSION['taal']))
+        {
+            $view->set('taal', $_SESSION["taal"]);
+        }
         
         $view->render();
     }

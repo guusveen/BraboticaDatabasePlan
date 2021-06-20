@@ -11,12 +11,6 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/xampp/htdocs/BraboticaDatabasePlan/braboticaMVC/Models/OrderRegel.php</file>
-            <file>file:/C:/xampp/htdocs/BraboticaDatabasePlan/braboticaMVC/Models/Adres.php</file>
-            <file>file:/C:/xampp/htdocs/BraboticaDatabasePlan/braboticaMVC/Models/Winkelwagen.php</file>
-            <file>file:/C:/xampp/htdocs/BraboticaDatabasePlan/braboticaMVC/Models/Product.php</file>
-            <file>file:/C:/xampp/htdocs/BraboticaDatabasePlan/braboticaMVC/Controllers/WinkelwagenController.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

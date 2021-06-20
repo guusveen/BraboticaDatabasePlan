@@ -12,6 +12,10 @@ class ZoektermController
         $view->set('pagina', 'zoektermBeheer');
         $view->set('zoektermen', Zoekterm::alleZoektermen());
         $view->set('categorieen', Categorie::alleCategorieen());
+        if(isset($_SESSION['taal']))
+        {
+            $view->set('taal', $_SESSION["taal"]);
+        }
         
         $view->render();
     }
@@ -29,6 +33,10 @@ class ZoektermController
         $view = new View('Producten');
         $view->set('title', 'Producten');
         $view->set('pagina', 'producten');
+        if(isset($_SESSION['taal']))
+        {
+            $view->set('taal', $_SESSION["taal"]);
+        }
         $view->set('producten', $producten);
         $view->set('categorieen', Categorie::alleCategorieen());
         

@@ -8,6 +8,10 @@ class BeheerLoginController
         $view = new View('BeheerLogin');
         $view->set('title', 'Beheerder inloggen');
         $view->set('pagina', 'login');
+        if(isset($_SESSION['taal']))
+        {
+            $view->set('taal', $_SESSION["taal"]);
+        }
         //$view->set('producten', Product::alleProducten());
         //$view->set('categorieen', Categorie::alleCategorieen());
         

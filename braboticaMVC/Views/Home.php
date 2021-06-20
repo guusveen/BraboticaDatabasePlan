@@ -6,10 +6,9 @@
         <h2>
         </h2>
         <p>
-            Met onze producten willen wij kinderen en jongeren stimuleren in de hoop dat ze morgen veel plezier voor
-            een it baan en/of opleiding kiezen!!
+            <?php echo HOME_TEXT1 ?>
         </p>
-        <button type="button"> Ondek meer</button>
+        <button type="button"><?php echo HOME_TEXT2 ?></button>
     </div>
     <div class="col-2">
         <img src="img/taoufik/robot-een.jpg" alt="">
