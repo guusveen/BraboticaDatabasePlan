@@ -14,7 +14,7 @@
         <p>Wij zijn ons bedrijf begonnen omdat er een tekort is aan educatie over technologie op basisscholen. Het werkaanbod binnen de toegepaste technologie-sector zal sterk groeien. Hierdoor zal het werkaanbod van ander soort banen dalen. Wij denken dat scholen hier nog te weinig aandacht aan besteden en zien hier een kans. Met onze producten doen leerlingen spelenderwijs belangrijke kennis op, waarmee de leerlingen een betere kans hebben op een goede baan.</p>
         </div><!-- whitespaceFix 
      --><div>
-           <img src="img/klaar_thijs.png"> 
+           <img src="img/klaar1.png"> 
         </div>
     </div>
 </div>

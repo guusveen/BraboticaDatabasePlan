@@ -22,6 +22,7 @@
             break;
         case "product":
             echo "<link rel=\"stylesheet\" href=\"css/producten.css\">";
+            echo "<link rel=\"stylesheet\" href=\"css/product.css\">";
             break;
         case "contact":
             echo "<link rel=\"stylesheet\" href=\"css/overOns.css\">
@@ -55,6 +56,7 @@
         case "productBeheer":
             echo "<link rel=\"stylesheet\" href=\"css/producten.css\">";
             echo "<link rel=\"stylesheet\" href=\"css/productUpdaten.css\">";
+            echo "<link rel=\"stylesheet\" href=\"css/product.css\">";
             break;
         case "productUpdaten":
             echo "<link rel=\"stylesheet\" href=\"css/productUpdaten.css\">";
