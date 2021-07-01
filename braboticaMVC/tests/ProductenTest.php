@@ -42,5 +42,6 @@ class ProductenTest extends PHPUnit\Framework\TestCase
         
         $this->assertCount(count($alleProductenVoor) + 1, $alleProductenNa);
     }
+
 }
 ?>
