@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="" tests="3" assertions="23" errors="0" warnings="0" failures="0" skipped="0" time="0.043508">
+    <testsuite name="Test Suite" tests="3" assertions="23" errors="0" warnings="0" failures="0" skipped="0" time="0.043508">
+      <testsuite name="GebruikersTest" file="C:\xampp\htdocs\BraboticaDatabasePlan\braboticaMVC\tests\GebruikersTest.php" tests="1" assertions="14" errors="0" warnings="0" failures="0" skipped="0" time="0.007307">
+        <testcase name="testConstructorGebruiker" class="GebruikersTest" classname="GebruikersTest" file="C:\xampp\htdocs\BraboticaDatabasePlan\braboticaMVC\tests\GebruikersTest.php" line="23" assertions="14" time="0.007307">
+          <system-out>De Test Constructor gebruiker is geslaagd.&#13;
+</system-out>
+        </testcase>
+      </testsuite>
+      <testsuite name="ProductenTest" file="C:\xampp\htdocs\BraboticaDatabasePlan\braboticaMVC\tests\ProductenTest.php" tests="2" assertions="9" errors="0" warnings="0" failures="0" skipped="0" time="0.036201">
+        <testcase name="testConstructor" class="ProductenTest" classname="ProductenTest" file="C:\xampp\htdocs\BraboticaDatabasePlan\braboticaMVC\tests\ProductenTest.php" line="7" assertions="8" time="0.000309"/>
+        <testcase name="testCreateProduct" class="ProductenTest" classname="ProductenTest" file="C:\xampp\htdocs\BraboticaDatabasePlan\braboticaMVC\tests\ProductenTest.php" line="28" assertions="1" time="0.035892"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

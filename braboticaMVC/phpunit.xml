@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="vendor/autoload.php" 
+         colors="true"
+         verbose="true"
+         stopOnFailure="false">
+<php>
+    <ini name="error_reporting" value="-1" />
+    <ini name="xdebug.mode" value="coverage" />
+    <env name="XDEBUG_MODE" value="coverage" />
+</php>
+
+    <testsuites>
+        <testsuite name="Test Suite">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <coverage cacheDirectory="results/phpunit/cache"
+              pathCoverage="true"
+              includeUncoveredFiles="true"
+              processUncoveredFiles="true"> 
+    <include>
+      <directory suffix=".php">tests</directory>
+    </include>
+    <report>
+      <html outputDirectory="results/phpunit"/>
+      <text outputFile="results/coverage.txt"/>
+    </report>
+</coverage>
+</phpunit>
