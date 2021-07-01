@@ -1,0 +1,22 @@
+
+
+Code Coverage Report:       
+  2021-07-01 21:03:28       
+                            
+ Summary:                   
+  Classes: 100.00% (5/5)    
+  Methods: 100.00% (8/8)    
+  Paths:   100.00% (8/8)    
+  Branches:   100.00% (8/8) 
+  Lines:   100.00% (193/193)
+
+DirectoryExistsTest
+  Methods: 100.00% ( 1/ 1)   Paths: 100.00% (  1/  1)   Branches: 100.00% (  1/  1)   Lines: 100.00% ( 15/ 15)
+DirectoryIsReadableTest
+  Methods: 100.00% ( 1/ 1)   Paths: 100.00% (  1/  1)   Branches: 100.00% (  1/  1)   Lines: 100.00% (  2/  2)
+FileExistsTest
+  Methods: 100.00% ( 1/ 1)   Paths: 100.00% (  1/  1)   Branches: 100.00% (  1/  1)   Lines: 100.00% ( 79/ 79)
+GebruikersTest
+  Methods: 100.00% ( 3/ 3)   Paths: 100.00% (  3/  3)   Branches: 100.00% (  3/  3)   Lines: 100.00% ( 67/ 67)
+ProductenTest
+  Methods: 100.00% ( 2/ 2)   Paths: 100.00% (  2/  2)   Branches: 100.00% (  2/  2)   Lines: 100.00% ( 30/ 30)
